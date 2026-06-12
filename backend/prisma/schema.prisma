@@ -1,0 +1,38 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Court {
+  id          Int       @id @default(autoincrement())
+  name        String
+  pricePerHour Float
+  status      String    @default("AVAILABLE") // AVAILABLE, MAINTENANCE
+  bookings    Booking[]
+}
+
+model Customer {
+  id        Int       @id @default(autoincrement())
+  name      String
+  phone     String    @unique
+  password  String?   // Added for authentication
+  bookings  Booking[]
+}
+
+model Booking {
+  id         Int      @id @default(autoincrement())
+  courtId    Int
+  customerId Int
+  startTime  DateTime
+  endTime    DateTime
+  totalPrice Float
+  status     String   @default("BOOKED") // BOOKED, IN_USE, COMPLETED, CANCELLED
+  createdAt  DateTime @default(now())
+
+  court      Court    @relation(fields: [courtId], references: [id])
+  customer   Customer @relation(fields: [customerId], references: [id])
+}
