@@ -8,8 +8,8 @@ def main():
     print("[*] KHOI DONG HE THONG QUAN LY SAN CAU LONG")
     print("=====================================================")
     
-    backend_dir = os.path.join("QUAN_LY_SAN_CAU_LONG", "HE_THONG)QUAN_LY", "backend")
-    frontend_dir = os.path.join("QUAN_LY_SAN_CAU_LONG", "HE_THONG)QUAN_LY", "frontend")
+    backend_dir = os.path.join("QUAN_LY_SAN_CAU_LONG", "HE_THONG_QUAN_LY", "backend")
+    frontend_dir = os.path.join("QUAN_LY_SAN_CAU_LONG", "HE_THONG_QUAN_LY", "frontend")
     
     if not os.path.exists(backend_dir) or not os.path.exists(frontend_dir):
         print(f"[!] Khong tim thay thu muc backend hoac frontend.")

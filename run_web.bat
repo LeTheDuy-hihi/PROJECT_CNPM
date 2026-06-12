@@ -6,25 +6,25 @@ echo =====================================================
 
 cd /d "%~dp0"
 
-IF NOT EXIST "QUAN_LY_SAN_CAU_LONG\HE_THONG)QUAN_LY\backend\node_modules\" (
+IF NOT EXIST "QUAN_LY_SAN_CAU_LONG\HE_THONG_QUAN_LY\backend\node_modules\" (
     echo Dang cai dat thu vien cho Backend (chi lan dau tien)...
-    cd "QUAN_LY_SAN_CAU_LONG\HE_THONG)QUAN_LY\backend"
+    cd "QUAN_LY_SAN_CAU_LONG\HE_THONG_QUAN_LY\backend"
     call npm install
     cd ..\..\..
 )
 
-IF NOT EXIST "QUAN_LY_SAN_CAU_LONG\HE_THONG)QUAN_LY\frontend\node_modules\" (
+IF NOT EXIST "QUAN_LY_SAN_CAU_LONG\HE_THONG_QUAN_LY\frontend\node_modules\" (
     echo Dang cai dat thu vien cho Frontend (chi lan dau tien)...
-    cd "QUAN_LY_SAN_CAU_LONG\HE_THONG)QUAN_LY\frontend"
+    cd "QUAN_LY_SAN_CAU_LONG\HE_THONG_QUAN_LY\frontend"
     call npm install
     cd ..\..\..
 )
 
 echo Dang khoi dong Backend...
-start "Badminton Backend" cmd /k "cd ""QUAN_LY_SAN_CAU_LONG\HE_THONG)QUAN_LY\backend"" && npm run dev"
+start "Badminton Backend" cmd /k "cd ""QUAN_LY_SAN_CAU_LONG\HE_THONG_QUAN_LY\backend"" && npm run dev"
 
 echo Dang khoi dong Frontend...
-start "Badminton Frontend" cmd /k "cd ""QUAN_LY_SAN_CAU_LONG\HE_THONG)QUAN_LY\frontend"" && npm run dev"
+start "Badminton Frontend" cmd /k "cd ""QUAN_LY_SAN_CAU_LONG\HE_THONG_QUAN_LY\frontend"" && npm run dev"
 
 echo.
 echo He thong dang duoc khoi dong trong 2 cua so moi.
