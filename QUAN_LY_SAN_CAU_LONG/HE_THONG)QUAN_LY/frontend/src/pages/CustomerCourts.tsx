@@ -1,5 +1,5 @@
+import api from '../api';
 import React, { useState, useEffect, useMemo } from 'react';
-import axios from 'axios';
 import { Search, MapPin, Play, Clock, RefreshCw, Calendar, Tag, AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Hash, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CustomerNavbar from '../components/CustomerNavbar';
@@ -30,7 +30,7 @@ const CustomerCourts = () => {
     setLoading(true);
     setNotification({ type: 'info', message: 'Dữ liệu đang được cập nhật...' });
     try {
-      const res = await axios.get('http://localhost:3000/api/courts');
+      const res = await api.get('/courts');
       setCourts(res.data);
       setNotification({ type: 'success', message: `Kết quả tìm kiếm thành công: Tìm thấy ${res.data.length} sân.` });
     } catch (err) {

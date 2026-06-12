@@ -1,5 +1,5 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Calendar as CalendarIcon, Clock, User, Phone, DollarSign } from 'lucide-react';
 
 const Bookings = () => {
@@ -7,7 +7,7 @@ const Bookings = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/bookings')
+    api.get('/bookings')
       .then(res => {
         setBookings(res.data);
         setLoading(false);

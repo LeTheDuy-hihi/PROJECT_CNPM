@@ -1,9 +1,8 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { MapPin, Clock, Search, Plus, Filter } from 'lucide-react';
 import BookingModal from '../components/BookingModal';
 
-const API_URL = 'http://localhost:3000/api';
 
 interface Court {
   id: number;
@@ -20,7 +19,7 @@ const Courts = () => {
 
   const fetchCourts = async () => {
     try {
-      const response = await axios.get(`${API_URL}/courts`);
+      const response = await api.get(`/courts`);
       setCourts(response.data);
       setLoading(false);
     } catch (error) {

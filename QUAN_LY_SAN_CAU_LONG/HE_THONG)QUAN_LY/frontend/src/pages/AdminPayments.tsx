@@ -1,5 +1,5 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { CreditCard, CheckCircle, Search, Filter } from 'lucide-react';
 
 const AdminPayments = () => {
@@ -8,7 +8,7 @@ const AdminPayments = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/bookings')
+    api.get('/bookings')
       .then(res => {
         setPayments(res.data);
         setLoading(false);

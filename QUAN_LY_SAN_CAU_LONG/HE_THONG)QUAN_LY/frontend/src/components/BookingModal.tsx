@@ -1,8 +1,7 @@
+import api from '../api';
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Calendar, Phone, User, CheckCircle, XCircle, X, Clock } from 'lucide-react';
 
-const API_URL = 'http://localhost:3000/api';
 
 interface Court {
   id: number;
@@ -33,7 +32,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ court, onClose, onSuccess }
     setIsSubmitting(true);
 
     try {
-      await axios.post(`${API_URL}/bookings`, {
+      await api.post(`/bookings`, {
         courtId: court.id,
         customerName,
         customerPhone,

@@ -1,12 +1,12 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Download, FileText, PieChart, TrendingUp } from 'lucide-react';
 
 const Reports = () => {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/stats')
+    api.get('/stats')
       .then(res => setStats(res.data))
       .catch(err => console.error(err));
   }, []);

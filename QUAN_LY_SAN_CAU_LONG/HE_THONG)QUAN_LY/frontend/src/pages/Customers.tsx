@@ -1,5 +1,5 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Users, Phone, Calendar } from 'lucide-react';
 
 const Customers = () => {
@@ -7,7 +7,7 @@ const Customers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/customers')
+    api.get('/customers')
       .then(res => {
         setCustomers(res.data);
         setLoading(false);

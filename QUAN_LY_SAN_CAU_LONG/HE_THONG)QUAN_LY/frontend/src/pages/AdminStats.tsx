@@ -1,12 +1,12 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { BarChart3, PieChart as PieChartIcon, TrendingUp, Calendar as CalendarIcon, ArrowUpRight } from 'lucide-react';
 
 const AdminStats = () => {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/stats')
+    api.get('/stats')
       .then(res => setStats(res.data))
       .catch(err => console.error(err));
   }, []);

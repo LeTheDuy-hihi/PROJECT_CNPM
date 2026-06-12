@@ -1,5 +1,5 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Users, Calendar, DollarSign, Activity, FileText, Download, Printer, ExternalLink, Map as MapIcon, ChevronDown } from 'lucide-react';
 
 const DashboardStats = ({ title, value, icon, color, trend }: any) => (
@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [chartView, setChartView] = useState('Ngày');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/stats')
+    api.get('/stats')
       .then(res => setStats(res.data))
       .catch(err => console.error(err));
   }, []);

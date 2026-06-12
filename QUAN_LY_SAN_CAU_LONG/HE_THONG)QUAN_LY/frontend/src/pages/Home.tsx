@@ -1,5 +1,5 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Search, MapPin, Calendar, Clock, Star, Trophy, ShieldCheck, Zap, Users, Play, CheckCircle2 } from 'lucide-react';
 import CourtCard from '../components/CourtCard';
 import CustomerNavbar from '../components/CustomerNavbar';
@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch real courts from backend
-    axios.get('http://localhost:3000/api/courts')
+    api.get('/courts')
       .then(res => {
         setCourts(res.data);
       })

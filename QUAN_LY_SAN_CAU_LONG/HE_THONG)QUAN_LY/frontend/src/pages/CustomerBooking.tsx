@@ -1,11 +1,10 @@
+import api from '../api';
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { MapPin, Clock, Star, Calendar as CalendarIcon, User, Phone, CheckCircle, XCircle, ArrowLeft, Hash, Tag, Info, AlertTriangle, Calculator } from 'lucide-react';
 import CustomerNavbar from '../components/CustomerNavbar';
 import CustomerFooter from '../components/CustomerFooter';
 
-const API_URL = 'http://localhost:3000/api';
 
 const CustomerBooking = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,7 +28,7 @@ const CustomerBooking = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     // Fetch court details
-    axios.get(`${API_URL}/courts`)
+    api.get(`/courts`)
       .then(res => {
         const foundCourt = res.data.find((c: any) => c.id === Number(id));
         if (foundCourt) {
@@ -94,7 +93,7 @@ const CustomerBooking = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await axios.post(`${API_URL}/bookings`, {
+      const res = await api.post(`/bookings`, {
         courtId: Number(id),
         customerName,
         customerPhone,

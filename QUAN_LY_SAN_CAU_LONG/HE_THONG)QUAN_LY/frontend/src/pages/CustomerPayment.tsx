@@ -1,11 +1,10 @@
+import api from '../api';
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { CreditCard, Wallet, Banknote, FileText, CheckCircle, ArrowLeft, Receipt, ChevronRight } from 'lucide-react';
 import CustomerNavbar from '../components/CustomerNavbar';
 import CustomerFooter from '../components/CustomerFooter';
 
-const API_URL = 'http://localhost:3000/api';
 
 const CustomerPayment = () => {
   const { bookingId } = useParams<{ bookingId: string }>();
@@ -20,7 +19,7 @@ const CustomerPayment = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     // Fetch all bookings and find the correct one
-    axios.get(`${API_URL}/bookings`)
+    api.get(`/bookings`)
       .then(res => {
         const found = res.data.find((b: any) => b.id === Number(bookingId));
         if (found) {
