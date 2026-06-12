@@ -15,6 +15,8 @@ import Home from './pages/Home';
 import CustomerCourts from './pages/CustomerCourts';
 import CustomerBooking from './pages/CustomerBooking';
 import CustomerPayment from './pages/CustomerPayment';
+import Promotions from './pages/Promotions';
+import AboutUs from './pages/AboutUs';
 
 const AdminLayout = () => {
   return (
@@ -69,6 +71,8 @@ const AppContent = () => {
       <Route path="/courts" element={<CustomerCourts />} />
       <Route path="/booking/:id" element={<CustomerBooking />} />
       <Route path="/payment/:bookingId" element={<CustomerPayment />} />
+      <Route path="/promotions" element={<Promotions />} />
+      <Route path="/about" element={<AboutUs />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

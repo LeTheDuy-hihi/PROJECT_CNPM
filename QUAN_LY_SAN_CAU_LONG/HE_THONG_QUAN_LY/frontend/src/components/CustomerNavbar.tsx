@@ -44,8 +44,8 @@ const CustomerNavbar = () => {
         <div className={`hidden md:flex items-center gap-8 font-semibold ${isScrolled ? 'text-gray-600' : 'text-white/90'}`}>
           <Link to="/" className="hover:text-emerald-500 transition-colors">Trang chủ</Link>
           <Link to="/courts" className="hover:text-emerald-500 transition-colors">Tìm sân</Link>
-          <Link to="/courts" className="hover:text-emerald-500 transition-colors">Khuyến mãi</Link>
-          <Link to="/courts" className="hover:text-emerald-500 transition-colors">Về chúng tôi</Link>
+          <Link to="/promotions" className="hover:text-emerald-500 transition-colors">Khuyến mãi</Link>
+          <Link to="/about" className="hover:text-emerald-500 transition-colors">Về chúng tôi</Link>
         </div>
 
         {/* Auth Section */}
